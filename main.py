@@ -43,5 +43,11 @@ def login():
     return render_template('login.html', form=form)
 
 
+@app.route('/distribution')
+def distribution():
+    passengers = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон бин']
+    return render_template('distribution.html', passengers=passengers)
+
+
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
