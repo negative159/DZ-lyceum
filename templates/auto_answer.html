@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Анкета</title>
+{% endblock %}
+
+{% block content %}
+<h4 class="form">Фамилия: {{surname}}</h4>
+<h4 class="form">Имя: {{name}}</h4>
+<h4 class="form">Образование: {{education}}</h4>
+<h4 class="form">Профессия: {{profession}}</h4>
+<h4 class="form">Пол: {{sex}}</h4>
+<h4 class="form">Мотивация: {{motivation}}</h4>
+<h4 class="form">{{ready}}</h4>
+
+{% endblock %}
