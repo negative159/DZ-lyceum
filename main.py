@@ -1,6 +1,18 @@
-from flask import Flask, url_for, request, render_template
+from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'adgqwayighoauishduiasbfaiu'
+
+
+class AccessForm(FlaskForm):
+    id_astronaut = StringField('Id астронавта', validators=[DataRequired()])
+    password_astronaut = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    id_captain = StringField('Id капитана', validators=[DataRequired()])
+    password_captain = PasswordField('Пароль капитана', validators=[DataRequired()])
+    submit = SubmitField('Доступ')
 
 
 @app.route('/list_prof/<text>')
@@ -23,6 +35,12 @@ def answer():
             'sex': 'Альфа', 'motivation': 'Поесть во Вкусно и Точка',
             'ready': 'Вы готовы дети? True'}
     return render_template('auto_answer.html', **form)
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    form = AccessForm()
+    return render_template('login.html', form=form)
 
 
 if __name__ == '__main__':

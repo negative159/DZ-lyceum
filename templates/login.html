@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Аварийный доступ</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="form_astronaut shadow p-3 mb-5 bg-white rounded">
+    <h1><img src="{{url_for('static', filename='img/mars.png')}}" align="top">Аварийный доступ</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.id_astronaut.label(class="form-label") }}
+        {{ form.id_astronaut(class="form-control") }}
+
+        {{ form.password_astronaut.label(class="form-label") }}
+        {{ form.password_astronaut(class="form-control") }}
+
+        {{ form.id_captain.label(class="form-label") }}
+        {{ form.id_captain(class="form-control") }}
+
+        {{ form.password_captain.label(class="form-label") }}
+        {{ form.password_captain(class="form-control") }}
+        <br>
+        {{form.submit(class="btn btn-primary")}}
+    </form>
+</div>
+{% endblock %}
