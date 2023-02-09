@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-param" align="center">
+    <h2>Оформление каюты</h2>
+    <table>
+        <thead>
+        <tr class="table-secondary" align="center" style="background-color: #cbbac5;">
+            <th scope="col">Цвет стен</th>
+            <th scope="col">Эмблема</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if sex == 'male' and age <= 21 %}
+            <td><div style="width: 400px; height: 500px; background-color: #5192f5;"></div></td>
+            <td><img src="{{url_for('static', filename='img/img_dog2.jpg')}}" width="400" height="500"></td>
+            {% elif sex == 'male' and age > 21 %}
+            <td><div style="width: 400px; height: 500px; background-color: #0209cf;"></div></td>
+            <td><img src="{{url_for('static', filename='img/img_dog1.jpg')}}" width="400" height="500"></td>
+            {% elif sex == 'female' and age <= 21 %}
+            <td><div style="width: 400px; height: 500px; background-color: #fa618f;"></div></td>
+            <td><img src="{{url_for('static', filename='img/img_dog2.jpg')}}" width="400" height="500"></td>
+            {% elif sex == 'female' and age > 21 %}
+            <td><div style="width: 400px; height: 500px; background-color: #ff004d;"></div></td>
+            <td><img src="{{url_for('static', filename='img/img_dog1.jpg')}}" width="400" height="500"></td>
+            {% endif %}
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
